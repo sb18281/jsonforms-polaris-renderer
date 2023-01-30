@@ -1,0 +1,55 @@
+{
+  "name": "jsonforms-polaris-renderer",
+  "version": "0.0.0",
+  "description": "Shopify Polaris Renderer Set for JSON Forms",
+  "main": "lib/jsonforms-react-polaris.cjs.js",
+  "module": "lib/jsonforms-react-polaris.esm.js",
+  "type": "module",
+  "repository": "git@github.com:sb18281/jsonforms-polaris-renderer.git",
+  "author": "Simon Barnes <simon@simonbarnes.me>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@testing-library/user-event": "^14.4.3"
+  },
+  "peerDependencies": {
+    "@jsonforms/core": "^3.0.0",
+    "@jsonforms/react": "^3.0.0",
+    "@shopify/polaris": "^10.24.0",
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@jsonforms/core": "^3.0.0",
+    "@jsonforms/react": "^3.0.0",
+    "@jsonforms/vanilla-renderers": "^3.0.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@shopify/polaris": "^10.24.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.0.27",
+    "@vitejs/plugin-react": "^3.0.1",
+    "jsdom": "^21.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.12.0",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-import-css": "^3.1.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-visualizer": "^5.9.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.0.4",
+    "vitest": "^0.28.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "build:examples-app": "rollup -c rollup.example.config.js",
+    "dev": "webpack --config example/webpack.dev.js && webpack-dev-server --config example/webpack.dev.js --env=dev --inline"
+  }
+}

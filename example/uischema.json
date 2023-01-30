@@ -1,0 +1,44 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": "Boolean Label",
+      "scope": "#/properties/booleanName"
+    },
+    {
+      "type": "Control",
+      "label": "Boolean Required Label",
+      "scope": "#/properties/booleanRequired",
+      "options": {
+        "toggle": true
+      }
+    },
+    {
+      "type": "Control",
+      "label": false,
+      "scope": "#/properties/booleanHidden",
+      "options": {
+        "toggle": true,
+        "readonly": true,
+        "polarisSettings": {
+          "helpText": "This is a Polaris Specific Setting"
+        }
+      }
+    },
+    {
+      "type": "Control",
+      "label": "Show if Name is True",
+      "scope": "#/properties/booleanShowIfNameTrue",
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/booleanName",
+          "schema": {
+            "const": true
+          }
+        }
+      }
+    }
+  ]
+}

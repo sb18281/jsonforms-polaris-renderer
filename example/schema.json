@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20
+      
+    },
+    "description": {
+      "title": "Long Description",
+      "type": "string"
+    },
+    "booleanName": {
+      "type": "boolean",
+      "description": "This doesn't really get used anywhere right?"
+    },
+    "booleanRequired": {
+      "type": "boolean",
+      "description": "This is required"
+    },
+    "booleanHidden": {
+      "type": "boolean",
+      "description": "This is required"
+    },
+    "booleanShowIfNameTrue": {
+      "type": "boolean",
+      "description": "ShowIfNameTrue"
+    }
+  },
+  "required": ["booleanRequired"]
+}
