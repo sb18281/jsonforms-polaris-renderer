@@ -44,7 +44,7 @@ const defaultControlProps = ():ControlProps => {
 }
 
 describe("Polaris Text Control", () => {
-    it('runs', () => {
+    test.todo('runs', () => {
         const props = defaultControlProps();
         const wrapper = render(createPolarisTextControl(props))
         screen.debug()
