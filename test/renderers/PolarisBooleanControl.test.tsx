@@ -107,7 +107,7 @@ describe('PolarisBooleanControl',  () => {
     expect(label).not.toBeInTheDocument();
   });
 
-  test.todo('Polaris Settings Check');
+  it.todo('Polaris Settings Check');
 
   //
 })
