@@ -2,17 +2,22 @@
   "type": "VerticalLayout",
   "elements": [
     {
-      "type": "Control",
-      "label": "Boolean Label",
-      "scope": "#/properties/booleanName"
-    },
-    {
-      "type": "Control",
-      "label": "Boolean Required Label",
-      "scope": "#/properties/booleanRequired",
-      "options": {
-        "toggle": true
-      }
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Boolean Label",
+          "scope": "#/properties/booleanName"
+        },
+        {
+          "type": "Control",
+          "label": "Boolean Required Label",
+          "scope": "#/properties/booleanRequired",
+          "options": {
+            "toggle": true
+          }
+        }
+      ]
     },
     {
       "type": "Control",

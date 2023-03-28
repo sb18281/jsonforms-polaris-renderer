@@ -23,7 +23,7 @@ const initialData = {
 };
 
 const renderers = [
-  ...vanillaRenderers,
+  // ...vanillaRenderers,
   ...polarisRenderers
 ];
 
@@ -36,11 +36,7 @@ const App = () => {
     setData({});
   };
   const styles = `
-    .vertical-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
+
   `
   return (
     <Fragment>

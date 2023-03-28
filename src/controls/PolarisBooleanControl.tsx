@@ -33,12 +33,9 @@ export const PolarisBooleanControl = ({
 
   // console.log({ data, visible, label, id, enabled, uischema, schema, rootSchema,errors, path, config },"Boolean Control")
     return (
-        <div>
-
-
-            { visible && <Checkbox  labelHidden={labelHidden}  error={errors}  disabled={!enabled} id={id} checked={checked} label={ label } onChange={(newValue, _id) => handleChange(path, newValue)} {...polarisSettings } /> }
-            <br/>
-        </div>
+        <>
+          { visible && <Checkbox  labelHidden={labelHidden}  error={errors}  disabled={!enabled} id={id} checked={checked} label={ label } onChange={(newValue, _id) => handleChange(path, newValue)} {...polarisSettings } /> }
+        </>
     )
 }
 
