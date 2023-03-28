@@ -1,56 +1,72 @@
-import React, { Fragment } from "react";
-import { LayoutProps, OwnPropsOfLayout, UISchemaElement } from "@jsonforms/core";
-import { ConditionalWrapper } from "./utils";
-import { FormLayout } from "@shopify/polaris";
-import { JsonFormsDispatch } from "@jsonforms/react";
+import React, { Fragment } from 'react';
+import {
+  LayoutProps,
+  OwnPropsOfLayout,
+  UISchemaElement,
+} from '@jsonforms/core';
+import { ConditionalWrapper } from './utils';
+import { FormLayout } from '@shopify/polaris';
+import { JsonFormsDispatch } from '@jsonforms/react';
 
 export interface PolarisLayoutRendererProps extends OwnPropsOfLayout {
-    elements: UISchemaElement[];
+  elements: UISchemaElement[];
 }
 
-const PolarisLayoutRendererComponent = ({
+const renderLayoutElements =({
     elements,
     schema,
     path,
     renderers,
     cells,
-    uischema,
-    direction,
-    visible,
-    enabled,
-    uischemas
+    enabled
 }: PolarisLayoutRendererProps) => {
-    // Check if the elements array is empty or not
-    if(!Array.isArray(elements) || !elements.length) return null;
+    return elements.map((child, index) => (
+        <JsonFormsDispatch
+        schema={schema}
+        uischema={child}
+        path={path}
+        enabled={enabled}
+        renderers={renderers}
+        cells={cells}
+      />
+      ));
+}
 
-    // TODO: Implement the condensed Field
-    const isCondensed = false;
+const PolarisLayoutRendererComponent = ({
+  elements,
+  schema,
+  path,
+  renderers,
+  cells,
+  direction,
+  enabled,
+}: PolarisLayoutRendererProps) => {
+  // Check if the elements array is empty or not
+  if (!Array.isArray(elements) || !elements.length) return null;
 
-    /**
-     * Otherwise Conditionally render the formlayout
-     * If it's a Row / Condensed Row, then render the FormLayout.Group
-     */
+  // TODO: Implement the condensed Field
+  const isCondensed = false;
 
-    return (
-        <ConditionalWrapper
-            condition={direction == 'row'}
-            wrapper={children => <FormLayout.Group condensed={isCondensed}>{ children }</FormLayout.Group> }
-        >
-            {elements.map((child, index) => (
-                <Fragment key={`${ path }-${ index }`}>
-                    <JsonFormsDispatch
-                        schema={schema}
-                        uischema={child}
-                        path={path}
-                        enabled={enabled}
-                        renderers={renderers}
-                        cells={cells}
-                    />
-                </Fragment>
-            ))}
-        </ConditionalWrapper>
-    )
+  /**
+   * Otherwise Conditionally render the formlayout
+   * If it's a Row / Condensed Row, then render the FormLayout.Group
+   */
+
+  return (
+    <FormLayout>
+        {
+            direction == 'row' ?
+                <FormLayout.Group condensed={isCondensed}>
+                    {renderLayoutElements({elements, schema, path, renderers, cells, enabled})}
+                </FormLayout.Group>
+                :
+                renderLayoutElements({elements, schema, path, renderers, cells, enabled})
+         }
+    </FormLayout>
+  )
+
+
 };
 
 // INFO: Material UI uses React Memo - not sure if it's needed in our case
-export const PolarisLayoutRenderer = React.memo(PolarisLayoutRendererComponent);
+export const PolarisLayoutRenderer = PolarisLayoutRendererComponent;
