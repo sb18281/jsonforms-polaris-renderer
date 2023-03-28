@@ -21,6 +21,7 @@ const renderLayoutElements =({
     enabled
 }: PolarisLayoutRendererProps) => {
     return elements.map((child, index) => (
+      <Fragment key={`${path}-${index}`}>
         <JsonFormsDispatch
         schema={schema}
         uischema={child}
@@ -29,6 +30,7 @@ const renderLayoutElements =({
         renderers={renderers}
         cells={cells}
       />
+      </Fragment>
       ));
 }
 
