@@ -18,7 +18,6 @@ export const PolarisVerticalLayout = ({
   // TODO: Support for a Label on the Layout
 
   //   console.log({ data, visible, label, enabled, uischema, schema, path, config, direction, cells, renderers }, 'Horizontal Layout');
-  console.log("Yo?")
   const layout = uischema as HorizontalLayout;
   const childProps: PolarisLayoutRendererProps = {
     elements: layout.elements,
