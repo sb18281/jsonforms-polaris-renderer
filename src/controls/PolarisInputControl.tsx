@@ -5,19 +5,12 @@ import {
     ControlProps
 } from '@jsonforms/core';
 import { withJsonFormsControlProps } from '@jsonforms/react';
-import { TextField, TextFieldProps } from '@shopify/polaris';
-import type { Prettify } from '../utils/typeHelpers'
+
+import { PolarisInputText } from '../polaris-controls/PolarisInputText';
 
 
-type PolarisInputControlPropsRaw = Omit<ControlProps, "uischema"> & {
-    uischema: Prettify<Omit<ControlElement, "options"> & {
-        options: TextFieldProps & { [key:string]: any }
-    }>
-}
 
-// type PolarisInputControlProps = Prettify<PolarisInputControlPropsRaw>
-
-export const PolarisInputControl = (props: PolarisInputControlPropsRaw) => {
+export const PolarisInputControl = (props: ControlProps) => {
     const {
         data,
         enabled,
@@ -27,14 +20,18 @@ export const PolarisInputControl = (props: PolarisInputControlPropsRaw) => {
         schema,
         uischema,
         path,
-        handleChange
+        handleChange,
+        visible
     } = props;
     const { maxLength, minLength } = schema;
     const { options } = uischema
 
-    console.log("PolarisInputControl", { props, maxLength, minLength });
     return (
-        <TextField autoComplete='' id={id} {...options} label={label} value={data}  onChange={(newData: string) => handleChange(path, newData)} />
+        <>
+        {
+            visible && <PolarisInputText {...props} isValid={true}/>
+        }
+        </>
     )
 
 }

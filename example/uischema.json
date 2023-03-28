@@ -44,6 +44,11 @@
           }
         }
       }
+    },
+    {
+      "type": "Control",
+      "label": "Name",
+      "scope": "#/properties/name"
     }
   ]
 }
