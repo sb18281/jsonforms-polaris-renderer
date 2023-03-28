@@ -1,6 +1,6 @@
 {
   "name": "jsonforms-polaris-renderer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Shopify Polaris Renderer Set for JSON Forms",
   "main": "lib/jsonforms-react-polaris.cjs.js",
   "module": "lib/jsonforms-react-polaris.esm.js",
@@ -26,7 +26,7 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",
-    "@shopify/polaris": "^10.24.0",
+    "@shopify/polaris": "^10.39.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.27",
@@ -49,7 +49,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "build:examples-app": "rollup -c rollup.example.config.js",
-    "dev": "webpack --config example/webpack.dev.js && webpack-dev-server --config example/webpack.dev.js --env=dev --inline"
+    "dev": "vite",
+    "test": "vitest"
   }
 }

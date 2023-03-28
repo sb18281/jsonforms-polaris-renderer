@@ -12,14 +12,6 @@ const PolarisProvider = ({children}: { children: React.ReactNode }) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
     render(ui, { wrapper: PolarisProvider, ...options });
 
-    export const TestEmitter : React.FC<JsonFormsReactProps> = ({onChange}) => {
-        const ctx = useJsonForms();
-        const { data, errors } = ctx.core;
-        React.useEffect(() => {
-          onChange({ data, errors });
-        }, [data, errors]);
-        return null;
-      };
 
 export * from '@testing-library/react';
 export { customRender as render }
