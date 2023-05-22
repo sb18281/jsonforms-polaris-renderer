@@ -48,7 +48,10 @@
     {
       "type": "Control",
       "label": "Name",
-      "scope": "#/properties/name"
+      "scope": "#/properties/name",
+      "options": {
+        "readonly": true
+      }
     }
   ]
 }

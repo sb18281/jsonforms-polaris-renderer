@@ -4,8 +4,9 @@
     "name": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 20
-      
+      "maxLength": 20,
+      "description": "This is the name of the thing"
+
     },
     "description": {
       "title": "Long Description",

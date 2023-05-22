@@ -19,13 +19,19 @@ export const PolarisInputText = ({
     label
 }: CellProps & {label:string} ) => {
 
-
+    console.log({config, options: uischema.options})
     return (
         <TextField
-            autoComplete=""
+            disabled={!enabled}
+            autoComplete="false"
             value={data}
             onChange={(newData) => handleChange(path, newData)}
             label={label}
+            helpText={schema.description}
+            error={errors}
+            maxLength={schema.maxLength}
+            minLength={schema.minLength}
+            readOnly={uischema.options.readOnly}
         />
     )
 
